@@ -317,7 +317,7 @@ public class AWSCodeDeployPublisher extends Publisher {
         }
 
         if (version != null){
-          zipFile = new File("/tmp/" + projectName + "-" + version + ".zip");
+          zipFile = new File(System.getProperty("java.io.tmpdir"), projectName + "-" + version + ".zip");
           final boolean fileCreated = zipFile.createNewFile();
           if (!fileCreated) {
             logger.println("File already exists, overwriting: " + zipFile.getPath());
